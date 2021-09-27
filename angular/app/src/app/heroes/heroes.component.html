@@ -1,0 +1,17 @@
+<div *ngIf="selectedHero">
+  <h2>รายละเอียดของซูปเปอร์ฮีโร่ชื่อ {{selectedHero.name|uppercase}}</h2>
+  <div><span>รหัส: </span>{{selectedHero.id}}</div>
+  <div><span>ชื่อ: </span>{{selectedHero.name}}</div>
+
+  <div>
+    <label for="name">Hero name: </label>
+    <input id="name" [(ngModel)]="selectedHero.name" placeholder="name">
+  </div>
+</div>
+
+<h2>รายการฮีโร่ทั้งหมด</h2>
+<ul class="heroes">
+  <li *ngFor="let h of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(h)">
+    <span class="badge">{{h.id}}</span> {{h.name}}
+  </li>
+</ul>
